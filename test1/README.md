@@ -11,13 +11,13 @@
 </ul>
 
 ## 查询1(截图):
-![](./1.png)
+![](./1.png) <br><br>
 其优化建议截图:
-![](./2.png)
+![](./2.png)<br><br>
 根据其优化指导中的详细信息可分析得:Cost=5，Rows=20，Predicate Information中有一次全表搜索filter和一次索引搜索access
  
 ## 查询2(截图)
-![](./4.png)
+![](./4.png)<br><br>
 根据其优化指导中的详细信息可分析得:Cost=7，Rows=106，Predicate Information中有俩次全表搜索filter和一次索引搜索access
  
  
@@ -26,19 +26,19 @@
 
  # 当我们根据优化指导，在department表上创建俩个DEPARTMENT_NAME和DEPARTMENT_ID索引字段后建立索引后:
 索引截图:
-![](./3.png)
+![](./3.png)<br><br>
 当我们再次运行，可以在详细信息中看到:
 ------------------------------------------------------------------------------------------
-| Id  | Operation                     | Name           | Rows  | Bytes | Cost (%CPU)| Time     |
+| Id  | Operation  | Name  | Rows  | Bytes | Cost (%CPU)| Time     |
 ------------------------------------------------------------------------------------------
-|   0 | SELECT STATEMENT              |                |     2 |    46 |     2   (0)| 00:00:01 |
-|   1 |  SORT GROUP BY NOSORT         |                |     2 |    46 |     2   (0)| 00:00:01 |
-|   2 |   NESTED LOOPS                |                |    19 |   437 |     2   (0)| 00:00:01 |
-|   3 |    NESTED LOOPS               |                |    20 |   437 |     2   (0)| 00:00:01 |
-|   4 |     INLIST ITERATOR           |                |       |       |            |          |
-|*  5 |      INDEX RANGE SCAN         | INDEX1         |     2 |    32 |     1   (0)| 00:00:01 |
-|*  6 |     INDEX RANGE SCAN          | IDX$$_04440001 |    10 |       |     0   (0)| 00:00:01 |
-|   7 |    TABLE ACCESS BY INDEX ROWID| EMPLOYEES      |    10 |    70 |     1   (0)| 00:00:01 |
+| 0 | SELECT STATEMENT     |        |     2 |    46 |     2   (0)| 00:00:01 |<br><br>
+| 1 | SORT GROUP BY NOSORT |        |     2 |    46 |     2   (0)| 00:00:01 |<br><br>
+| 2 | NESTED LOOPS         |        |    19 |   437 |     2   (0)| 00:00:01 |<br><br>
+| 3 | NESTED LOOPS         |        |    20 |   437 |     2   (0)| 00:00:01 |<br><br>
+| 4 | INLIST ITERATOR      |        |       |       |            |          |<br><br>
+|*5 | INDEX RANGE SCAN     | INDEX1 |     2 |    32 |     1   (0)| 00:00:01 |<br><br>
+|*6 | INDEX RANGE SCAN     | IDX$$_04440001 |    10 |  |     0   (0)| 00:00:01 |<br><br>
+| 7 | TABLE ACCESS BY INDEX ROWID| EMPLOYEES      |    10 |    70 |     1   (0)| 00:00:01 |<br><br>
 ------------------------------------------------------------------------------------------
 
  
@@ -61,7 +61,7 @@ Predicate Information (identified by operation id):
 
 
 # 自编码(截图):
-![](./5.png)
+![](./5.png)<br><br>
 我自己编写的代码是在查询代码1的基础上进行改变变的，就是把代码
 <table border='1'><th>...and d.department_name in('IT','Sales') 变成<br>
  ...and (d.department_name='IT' or d.department_name='Sales')</th></table>
