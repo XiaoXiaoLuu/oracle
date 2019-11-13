@@ -1,4 +1,4 @@
-# 实验5：对象管理(在系统system创建我自己的角色znf_user下进行)
+# 实验5：PL/SQL编程(在系统system创建我自己的角色znf_user下进行)
 
 ## 实验目的：
     1.了解PL/SQL语言结构
