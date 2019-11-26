@@ -13,6 +13,7 @@
 ## 考核内容：
 ### 内容2：
   user01（分配一个数据文件：pdbmyself_user01.dbf，大小为100M）和user02（分配两个数据文件：pdbmyself_user02_1.dbf和pdbmyself_user02_2.dbf，大小各自为100M，共计200M）。<br>
+    
     Create  tablespace  user01  datafile 
         ‘/home/oracle/app/oracle/oradata/orcl/pdbmyself/pdbmyself_user01.dbf’
         size 100M autoextend on next 50M maxsize unlimited extent management 
@@ -22,7 +23,7 @@
         ‘/home/oracle/app/oracle/oradata/orcl/pdbmyself/pdbmyself_user02_1.dbf’
         size 100M autoextend on next 50M maxsize unlimited extent management 
         local segment  space management auto;
-        
+
     Create  tablespace  user02  datafile
         ‘/home/oracle/app/oracle/oradata/orcl/pdbmyself/pdbmyself_user02_2.dbf’
         size 100M autoextend on next 50M maxsize unlimited extent management 
